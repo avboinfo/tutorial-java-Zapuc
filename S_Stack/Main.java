@@ -30,20 +30,6 @@ public class Main {
         System.out.println(stack);
     }
 
-    /* 
-    private static void writeReversedStringsToFile(Stack<String> stack) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("out.txt"))) {
-            while (stack.equals(null)) {
-                writer.write(new StringBuilder(stack.pop()).reverse().toString());
-                writer.newLine();
-                System.out.println(stack);
-            }
-        } catch (IOException e) {
-            System.err.println("Errore durante la scrittura nel file: " + e.getMessage());
-        }
-    }
-    */
-
     private static void writeReversedSentencesToFile(Stack<String> stack) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("out.txt"))) {
             while (!stack.empty()) {
