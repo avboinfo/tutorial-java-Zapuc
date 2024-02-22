@@ -16,16 +16,16 @@ public class Main {
 
     Pila<String> pila=new Pila<>();
     try{
-        File f=new File("DatiIn.txt");
+        File f=new File("E_Esercizi/DatiIn.txt");
         Scanner sc=new Scanner(f);
-        String[] vet;
-        for(sc.hasNextLine()){
-            vet[0]=sc.nextLine();
-            f.push(vet[0]);
+        while(sc.hasNextLine()){
+            String s=sc.nextLine();
+            pila.push(s);
         }
-
+        sc.close();
     }catch(FileNotFoundException e){
-        System.out.println(e);
+        System.out.println(e.getMessage());
     }
+    System.out.println(pila);
 }
 }
