@@ -1,11 +1,3 @@
-/*
- * Prova Formattazioni
- */
-
-/**
- *
- * @author sandro.gallo
- */
 public class ProveFormattazioni {
 
     /**

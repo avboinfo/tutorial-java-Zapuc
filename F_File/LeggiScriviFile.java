@@ -1,6 +1,8 @@
+package F_File;
 import java.io.File;
 tFoundExpection;
 import java.io.PrintWriter;
+import java.io.FileNotFoundException;
 
 public class LeggiScriviFile{
     public void scriviFile(String filename){
@@ -11,8 +13,8 @@ public class LeggiScriviFile{
                 pw.printf("%f %f", Math.random(),Math.random());
             }
             pw.close();
-        }catch(FileNotFoundExpection e){
-            System.err.println("errore " + e.gerMessage());
+        }catch(FileNotFoundException e){
+            System.err.println("errore " + e.getMessage());
         }
 
     }

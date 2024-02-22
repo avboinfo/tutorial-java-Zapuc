@@ -21,10 +21,5 @@ public class ProveFile {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
-        
-
     }
 }
