@@ -33,5 +33,5 @@ public class Stack<T> {
         }
         return s;
     }    
-    
+
 }
