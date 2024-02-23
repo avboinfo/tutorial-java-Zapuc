@@ -26,13 +26,13 @@ public class Main {
         }
         scanner.close();
 
-        writeReversedStringsToFile(stack);
+        writeReversedSentencesToFile(stack);
         System.out.println(stack);
     }
 
     private static void writeReversedSentencesToFile(Stack<String> stack) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("out.txt"))) {
-            while (!stack.empty()) {
+            while (!stack.isEmpty()) {
                 String sentence = stack.pop();
                 StringBuilder reversed = new StringBuilder(sentence).reverse();
                 writer.write(reversed.toString());
