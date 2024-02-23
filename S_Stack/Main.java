@@ -10,31 +10,40 @@ import java.util.Scanner;
 public class Main {
 
     public static void main( String[] args ) {
+        /*
         Stack<String> s = new Stack<>();
         s.push("Juve");
         s.push("Inter");
         System.out.println(s.pop());
         System.out.println(s);
+        */
 
         Stack<String> stack=new Stack<>();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Inserisci le stringhe (termina con una riga vuota):");
         String input = scanner.nextLine();
         while (!input.isEmpty()) {
-            stack.push(input);
             input = scanner.nextLine();
+            stack.push(input);
         }
         scanner.close();
-
-        writeReversedSentencesToFile(stack);
-        System.out.println(stack);
+        try{
+            File f=new File("S_Stack/out.txt");
+            Scanner sc=new Scanner(f);
+            while(sc.hasNextLine()){
+                System.out.print(writeReversedSentencesToFile(stack));
+            }
+            sc.close();
+        }catch(FileNotFoundException e){
+            System.out.println("Errore durante la scrittura nel file: " + e.getMessage());
+        } 
     }
 
     private static void writeReversedSentencesToFile(Stack<String> stack) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("out.txt"))) {
             while (!stack.isEmpty()) {
-                String sentence = stack.pop();
-                StringBuilder reversed = new StringBuilder(sentence).reverse();
+                String frase = stack.pop();
+                StringBuilder reversed = new StringBuilder(frase).reverse();
                 writer.write(reversed.toString());
                 writer.newLine();
             }
