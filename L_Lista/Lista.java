@@ -22,6 +22,29 @@ public class Lista {
 
     }
 
+    public void addHead(Nodo n){
+        if(isEmpty()){
+            radice=n;
+        }else{
+            n.setSuccessivo(radice);
+            radice=n;
+        }
+    }
+
+    public void addSorted(Nodo n){
+        if(isEmpty()){radice=n; n.setSuccessivo(null); return; } 
+        int vn=n.getValore();
+        if(vn<radice.getValore()){n.setSuccessivo(radice); radice=n; return;}
+        Nodo p1=radice;
+        Nodo p2=radice.getSuccessivo();
+        while(p2!=null&&vn>p2.getValore()){
+            p1=p2;
+            p2=p1.getSuccessivo();
+            }
+        n.setSuccessivo(p2);
+        p1.setSuccessivo(n);
+        }
+
     public String toString(){
         if(isEmpty()) return "Lista vuota";
         String s="Elementi della lista --> ";

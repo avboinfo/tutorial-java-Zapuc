@@ -2,18 +2,16 @@ package L_Lista;
 
 public class Main {
     public static void main(String[] argv){
-        System.out.println("Partiti!\n\n");
+        System.out.println("\n\nPartiti!\n\n");
 
         Lista l=new Lista();
         System.out.println(l);
 
-        //Nodo n=new Nodo(100, null);
+        for(int i=0;i<10;i++){
+            l.add(new Nodo(i, null));
+        }
+        l.addHead(new Nodo (2024, null));
 
-        l.add(new Nodo(100,null));
-        l.add(new Nodo(101,null));
-        l.add(new Nodo(102,null));
-        l.add(new Nodo(103,null));
-        l.add(new Nodo(104,null));
         System.out.println(l);
     }
 }
