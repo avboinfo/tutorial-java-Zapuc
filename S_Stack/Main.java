@@ -31,7 +31,7 @@ public class Main {
             File f=new File("S_Stack/out.txt");
             Scanner sc=new Scanner(f);
             while(sc.hasNextLine()){
-                System.out.print(writeReversedSentencesToFile(stack));
+                System.out.println(writeReversedSentencesToFile(stack));
             }
             sc.close();
         }catch(FileNotFoundException e){

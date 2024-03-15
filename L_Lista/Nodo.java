@@ -1,7 +1,5 @@
 package L_Lista;
 
-import java.io.*;
-
 public class Nodo{
 
     private int valore;

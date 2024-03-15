@@ -7,11 +7,22 @@ public class Main {
         Lista l=new Lista();
         System.out.println(l);
 
-        for(int i=0;i<10;i++){
-            l.add(new Nodo(i, null));
-        }
-        l.addHead(new Nodo (2024, null));
+        l.addSorted(new Nodo(200,null));
+        l.addSorted(new Nodo(250,null));
+        l.addSorted(new Nodo(100,null));
+        l.addSorted(new Nodo(150,null));
 
         System.out.println(l);
-    }
+
+        l.addAfter(130, new Nodo(130, null));
+
+        /* 
+        Lista.Iteratore iter=l.getIterator();
+        while(iter.hasNext()){
+            System.out.println(iter.next());
+        }
+        */
+
+
+}
 }
