@@ -29,6 +29,10 @@ public class Lista {
             return i;
     }
 
+    public Nodo getRoot(){
+        return radice;
+    }
+
     public Lista(){
         radice=null;
     }
