@@ -75,33 +75,6 @@ public class Lista {
         n.setSuccessivo(p2);
         p1.setSuccessivo(n);
         }
-    
-        /*
-    public boolean addAfter(Nodo n, int pos){
-        Nodo s=radice;
-        int i=0;
-        if(isEmpty()){ return false;}
-        if(pos==0||pos<0||pos>grandezzaNodo){ return false;}
-        while (s != null) {
-            if (i == pos) {
-                
-                //SOLO PER GLI INTERI (proverò a farlo)
-                    A=10, B=1;
-                    A=A+B ( A=11, B=1 )
-                    B=A-B ( A=11, B=10 )
-                    A=A-B ( A=1 , B=10 )
-                 
-                Nodo s2 = s.getSuccessivo();
-                s.setSuccessivo(n);
-                n.setSuccessivo(s2);
-                return true;
-            }
-            i++;
-            s = s.getSuccessivo();
-        }
-        return false;
-    }
-    */
 
     public boolean addAfter(int pos, Nodo n){
         //aggiunge il nodo n solo dopo aver oltrepassato il nodo di indice pos

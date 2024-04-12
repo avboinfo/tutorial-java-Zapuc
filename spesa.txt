@@ -1,0 +1,173 @@
+Fammi un programma in java, che Utilizzando le classi "Lista" e "Nodo", definire una classe "Spesa" che consenta di eseguire le seguenti operazioni:
+
+aggiunta del codice di un prodotto all'elenco
+eliminazione dell'ultimo prodotto inserito nell'elenco
+eliminazione di un prodotto dall'elenco, dato il suo codice
+calcolo del costo totale dei prodotti presenti nell'elenco
+stampa dell'elenco a video e salvataggio in un file "spesa.txt".
+
+La classe Nodo è la seguente:
+package L_Lista;
+
+public class Nodo{
+
+private int valore;
+private Nodo successivo;
+
+public Nodo (int valore, Nodo successivo) {
+    this.valore=valore;
+    this.successivo=successivo;
+}
+
+public void setSuccessivo(Nodo nuovoSuccessivo){
+    successivo=nuovoSuccessivo;
+}
+
+public Nodo getSuccessivo(){
+    return successivo;
+}
+
+public int getValore(){
+    return valore;
+}
+
+public void setValore(int nuovoValore){
+    valore=nuovoValore;
+}
+
+public String toString(){
+    return "["+valore+"]";
+}
+}
+
+La classe Lista è la seguente:
+package L_Lista;
+
+import java.util.Iterator;
+
+public class Lista {
+
+Nodo radice;
+
+class Iteratore{
+    private Nodo nodo;  
+
+    private Iteratore(Nodo nodo){
+        this.nodo=nodo;
+    }
+    public boolean hasNext(){
+        return nodo!=null;
+    }
+    public Nodo next(){
+        if(nodo==null) return null;
+        //Nodo result = new Nodo(nodo.getValore(),nodo.getSuccessivo());
+        Nodo result=nodo;
+        nodo=nodo.getSuccessivo();
+        return result;
+    }
+}
+
+ public Iteratore getIterator(){
+        Iteratore i=new Iteratore(radice);
+        return i;
+}
+
+public Nodo getRoot(){
+    return radice;
+}
+
+public Lista(){
+    radice=null;
+}
+
+public boolean isEmpty(){
+    return radice==null;
+}
+
+/* 
+public void add(Nodo n){
+    if(isEmpty()){
+        radice=n;
+    }else{
+        Nodo p=radice;
+        while(p.getSuccessivo()!=null) p=p.getSuccessivo();
+        p.setSuccessivo(n);
+    }
+
+}*/
+
+public void addHead(Nodo n){
+    if(isEmpty()){
+        radice=n;
+    }else{
+        n.setSuccessivo(radice);
+        radice=n;
+    }
+}
+
+public void addSorted(Nodo n){
+    if(isEmpty()){radice=n; n.setSuccessivo(null); return; } 
+    int vn=n.getValore();
+    if(vn<radice.getValore()){n.setSuccessivo(radice); radice=n; return;}
+    Nodo p1=radice;
+    Nodo p2=radice.getSuccessivo();
+    while(p2!=null&&vn>p2.getValore()){
+        p1=p2;
+        p2=p1.getSuccessivo();
+        }
+    n.setSuccessivo(p2);
+    p1.setSuccessivo(n);
+    }
+
+public boolean addAfter(int pos, Nodo n){
+    //aggiunge il nodo n solo dopo aver oltrepassato il nodo di indice pos
+    Iteratore iter=this.getIterator();
+    int i; Nodo npos=null;
+    for(i=0;i<pos;i++){
+        if(iter.hasNext())npos=iter.next();
+        else return false;        
+    }
+    n.setSuccessivo(npos.getSuccessivo());
+    npos.setSuccessivo(n);
+    return true;
+}
+
+//rimuove il valore nella posizione
+public boolean removeValue(int pos){
+    if(isEmpty()){ return false; }
+    if(pos < 0) return false;
+
+    if(pos==0){ return true; 
+    }else{
+
+
+    }
+
+
+
+
+    return true;
+}
+
+//rimuove un nodo nella posizione 
+/*
+public boolean removePos(int pos){
+
+}
+*/
+
+public String toString(){
+    if(isEmpty()) return "Lista vuota";
+    String s="Elementi della lista --> ";
+    Nodo p=radice;
+    while(p!=null){
+        s+=p+"\t";
+        p=p.getSuccessivo();
+    }
+    
+    s+="End!\n";
+    return s;
+}
+}
+
+Per risalire dal codice alla descrizione ed al costo del prodotto si può utilizzare una classe "Prodotti" che carica da un file "prodotti.csv" l'elenco di tutti i prodotti presenti nel supermercato memorizzati su ogni riga come: codice, descrizione, costo.
